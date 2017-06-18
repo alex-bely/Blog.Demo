@@ -23,21 +23,7 @@ namespace ExpressionTreeVisitor
 
         protected override Expression VisitMember(MemberExpression node)
         {
-            //var a = node;
-            //var b = node.Expression;
-            //var c = typeof(To);
-            //var d = node.Member;
-            //var e = d.Name;
-            //var f = c.GetMember(e);
-            //var g = f.FirstOrDefault();
-
-            ////var aa = this.Visit(b);
-
-            ////var t = Expression.MakeMemberAccess(aa, g);
-            //var tt = typeof(To).GetMember("Name");
-            //var tn= DAL.Interfacies.DTO.DalTag.
-            //    System.String Name" не определено для типа "DAL.Interfacies.DTO.DalTag"
-
+            
             try
             {
                 if (node.Member.DeclaringType == typeof(From))

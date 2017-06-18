@@ -20,7 +20,7 @@ namespace DependencyResolver
     {
         public static void ConfigurateResolver(this IKernel kernel)
         {
-           // IHttpModule k;
+           
             kernel.Bind<DbContext>().To<EntityModel>().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<IUserRepository>().To<UserRepository>();
@@ -28,13 +28,13 @@ namespace DependencyResolver
             kernel.Bind<ITagRepository>().To<TagRepository>();
             kernel.Bind<ICommentRepository>().To<CommentRepository>();
             kernel.Bind<IArticleRepository>().To<ArticleRepository>();
-            kernel.Bind<IUserService>().To<UserService>();//.WithConstructorArgument("path", WebConfigurationManager.AppSettings["Path"]);
+            kernel.Bind<IUserService>().To<UserService>();
             kernel.Bind<IRoleService>().To<RoleService>();
             kernel.Bind<ITagService>().To<TagService>();
             kernel.Bind<ICommentService>().To<CommentService>();
             kernel.Bind<IArticleService>().To<ArticleService>();
 
-            //kernel.Bind<IFileService>().To<FileService>().WithConstructorArgument("path", WebConfigurationManager.AppSettings["Path"]);
+            
         }
     }
 }
