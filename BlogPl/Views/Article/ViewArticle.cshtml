@@ -1,0 +1,59 @@
+﻿@model BlogPL.Models.ArticleViewModel.ArticleViewModel
+@{
+    ViewBag.Title = "Article";
+    var avatar = Html.Action("GetAvatar", "User", new { id = Model.UserId });
+}
+<div class="view-article-wrapper">
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12" id="article">
+        <div id="title">
+            <h2>@Html.ActionLink(@Model.Title, "ViewArticle", new { controller = "Article", ArticleId = Model.Id })</h2>
+            <div id="info">
+                <span id="date">@Model.PublicationDate.ToShortDateString()</span>
+
+                <div class="img-wrapper">
+                    <img src=@avatar />
+                </div>
+                <span id="user">
+
+                    @Html.ActionLink(@Model.User.UserName, "GetBloggerArticles", new { controller = "Article", bloggerid = @Model.UserId }, new { @title = "User's blog" })
+                </span>
+                @if (HttpContext.Current.User.IsInRole("admin") || (Request.IsAuthenticated && Convert.ToInt32(Profile.GetPropertyValue("Id")) == Model.UserId))
+            {
+                    <span class="pull-right" id="articleSettings">
+                        <span class="glyphicon glyphicon-pencil">@Html.ActionLink("Edit", "UpdateArticle", new { controller = "Article", ArticleId = @Model.Id })</span>
+                        <span class="glyphicon glyphicon-remove-circle">@Html.ActionLink("Delete", "DeleteArticle", new { controller = "Article", ArticleId = @Model.Id })</span>
+                    </span>
+                }
+            </div>
+        </div>
+        <br>
+        <div id="content" class="text-justify">@Model.Content</div>
+        <div class="pull-right">Views @Model.Rating</div>
+        <br>
+        <p></p>
+        <div id="all_tags">
+            @Html.Action("GetTags", new { controller = "Tag", ArticleId = @Model.Id })
+        </div>
+        <div id="searchByTag"></div>
+        <div class="new-comment">
+            @*<a href="@ViewBag.BackPath" class="btn btn-default">Back</a>*@
+            <div class="comments-all" id="all_comments">
+                @Html.Action("GetComments", new { controller = "Comment", ArticleId = @Model.Id })
+            </div>
+            <br />
+            @if (Request.IsAuthenticated)
+            {
+                @Html.Action("AddComment", new { controller = "Comment", ArticleId = Model.Id })
+            }
+        </div>
+    </div>
+    
+
+    @*Take*@
+    <script>
+    function input_clear_comment() {
+        $("#Text").val('');
+    }
+    </script>
+</div>
+

@@ -1,0 +1,320 @@
+﻿body {
+    
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 520px;
+}*/
+
+/*.dropdown-menu {
+    padding-bottom: 10px;
+}*/
+
+/*.dropdown-menu li {
+    border-bottom: 1px solid grey;
+}*/
+
+.header {
+    border-radius: 0;
+}
+
+.header .navbar-btn {
+    margin: 0;
+}
+
+.header .navbar-header {
+    margin: 5px;
+}
+.img-wrapper {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    box-sizing: content-box;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+
+.header .navbar-btn .img-wrapper {
+    padding: 5px 2px 5px 12px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    box-sizing: content-box;
+    background-color: inherit;
+}
+
+.header .navbar-header .img-wrapper {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: inherit;
+}
+
+.header .img-wrapper img{
+    width: 100%;
+    height: 100%;
+}
+
+.header .navbar-btn {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.header .header-content {
+    padding: 0;
+}
+
+.header .navbar-collapse form {
+    margin-top: 8px;
+}
+
+.live-res-wrapper {
+    position: absolute;
+    min-width: 230px;
+    background-color: white;
+    left: 67px;
+    top: 43px;
+    z-index: 4;
+    box-shadow: 0px 0px 5px -1px black;
+}
+
+.live-res-wrapper p {
+    padding: 4px 8px;
+    margin: 0;
+    border-bottom: 1px solid gainsboro;
+}
+
+.live-res-wrapper p:hover {
+    background-color: #eaeaea;
+}
+
+.live-res-wrapper a:hover {
+    text-decoration: none;
+}
+
+.table {
+    border: 1px solid #dddddd;
+}
+
+.col-sm-offset-1 {
+    max-width: 80%;
+}
+
+#article {
+   padding: 10px 10px 20px 10px;
+   box-shadow: 0 0 15px -6px black;
+   border-radius: 15px;
+   margin-bottom: 10px;
+   background-color: white;
+   
+   
+}
+
+.view-article-wrapper {
+    display:grid;
+    
+}
+
+a {
+    color: black;
+}
+.label {
+    padding-left: 15px;
+}
+.form-control {
+display: inline;
+}
+
+.row{
+    margin-left:0;
+    margin-right:0;
+}
+
+#search_result{
+    margin-bottom: 50px;
+}
+
+.search-result-wrapper {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #FFF;
+    max-width: 795px;
+    margin: 7px;
+    box-shadow: 0 0 5px -2px black;
+}
+
+.search-result-wrapper:hover {
+    box-shadow: -6px 0px 16px -9px black;
+}
+
+.search-result-wrapper .author {
+    display: inline-block;
+    margin: 7px;
+    text-align: center;
+    width: 83px;
+    word-break: break-word;
+}
+
+.search-result-wrapper .blog-info {
+    display: inline-block;
+    margin-left: 10px;
+    max-width: 86%;
+    vertical-align: top;
+}
+
+.field-validation-error{ color: red; }
+
+.input-validation-error{ background: pink; border: 1px solid red; }
+
+span#articleSettings.pull-right {
+    font-size: larger;
+}
+
+span.glyphicon {
+    /*top: 10px;*/
+    vertical-align:middle;
+}
+
+span.glyphicon.glyphicon-pencil{
+    margin-right: 5px;
+}
+
+.glyphicon-remove-circle:before {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.glyphicon-pencil:before {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.panel-body {
+    padding-left: 15px;
+    
+}
+
+.fa{
+    margin-right: 5px;
+}
+
+.fa-check-square{
+color:#344158;
+}
+
+.fa-check-square:before {
+    content: "\f14a";
+    margin-right: 5px;
+}
+
+ .table-bordered {
+    border: 1px solid #344158;
+    border-radius: 35px;
+}
+
+ .comments-wrapper {
+     
+     padding: 0;
+ }
+
+ .comment-text {
+    word-break: break-word;
+    padding-top: 9px;
+}
+
+ body {
+     background-color:#edeef0;
+ }
+
+ .comment {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 4px 0 10px 8px;
+ }
+
+ .new-comment .form-control{
+     max-width: 100%;
+ }
+
+ #update-article-panel {
+     border-radius:15px;
+}
+
+
+  #update-article-panel .form-control{
+     max-width:100%;
+}
+
+.table {
+    background-color:white;
+}
+
+.get-all{
+    padding-left: 36px;
+    padding-right: 30px;
+}
+
+
+#FullSearchDiv h1 {
+    text-align: center;
+}
+
+#FullSearchDiv .profile-forms {
+    width: 600px;
+    text-align: left;
+    margin: auto;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding: 28px;
+    box-shadow: 0 0 9px -3px black;
+}
+
+
+.profile-forms #form1 {
+    display: inline-block;
+    padding-left: 50px;
+    width: 210px;
+}
+
+.profile-forms #form1 img {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-forms #form1 label {
+    display: table-caption;
+}
+
+#uploadform {
+    display: inline-block;
+    width: 250px;
+}
+
+#uploadform .save-btn {
+    display: inline-block;
+    margin-right: 7px;
+}
+#uploadform .form-group {
+    margin-left: 0;
+}

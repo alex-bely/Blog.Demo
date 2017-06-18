@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BlogPL.Models.ArticleViewModel.ArticleViewModel>
+@{
+    Layout = null;
+}
+<div id="getAllArticles" >
+    <div class="get-all">
+        <h2>All articles</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayName("Publication date")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.ActionLink(@item.Title, "ViewArticle", new { controller = "Article", ArticleId = @item.Id })
+                    </td>
+                    @{
+                        var date = item.PublicationDate.ToShortDateString();
+                    }
+                    <td>
+                        @Html.DisplayFor(m => date)
+                    </td>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => item.Tags)
+                    </td>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "UpdateArticle", new { controller = "Article", ArticleId = item.Id }) |
+                        @Ajax.ActionLink("Delete", "DeleteArticleFromAdmin", new { ArticleId = item.Id }, new AjaxOptions { UpdateTargetId = "getAllArticles", HttpMethod = "Get" })
+                    </td>
+                </tr>
+                        }
+        </table>
+
+        <p>
+            @Html.ActionLink("Add new article", "CreateArticle", new { controller = "Article" })
+        </p>
+    </div>
+</div>

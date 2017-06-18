@@ -1,0 +1,35 @@
+﻿@model MVcPL.Models.ArticleViewModel.ArticleViewModel
+@{
+    ViewBag.Title = "Article";
+}
+<div class="col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6 article" id="article">
+    <div id="title">
+        <h2 class="text-center">@Html.ActionLink(@Model.Title, "ViewArticle", new { controller = "Article", ArticleId = Model.Id })</h2>
+        <div id="info">
+            <span id="date">@Model.PublicationDate</span>
+            <span id="user">
+                <img src="/Content/images/icon_user_gray.png" />
+
+                @Html.ActionLink(@Model.User.UserName, "ViewBloggerArticles", new { controller = "Article", bloggerid = @Model.UserId }, new { @title = "User's blog" })
+            </span>
+            @if (HttpContext.Current.User.IsInRole("admin") || (Request.IsAuthenticated && Convert.ToInt32(Profile.GetPropertyValue("Id")) == Model.UserId))
+            {
+                <span class="pull-right">
+                    <img src="/Content/images/icon_edit.png" /> @Html.ActionLink("Edit", "UpdateArticle", new { controller = "Article", ArticleId = @Model.Id })
+                    <img src="/Content/images/icon_delete.png" /> @Html.ActionLink("Delete", "DeleteArticle", new { controller = "Article", ArticleId = @Model.Id })
+                </span>
+            }
+        </div>
+    </div>
+    <br />
+    <div id="content">@Model.Content</div>
+    <div class="pull-right">Views @Model.Rating</div>
+
+    <div class="comments-all" id="all_comments">
+        @Html.Action("GetComments", new { controller = "Comment", ArticleId = @Model.Id })
+    </div>
+    @if (Request.IsAuthenticated)
+    {
+        @Html.Action("AddComment", new { controller = "Comment", ArticleId = Model.Id })
+    }
+</div>

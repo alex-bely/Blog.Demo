@@ -1,0 +1,25 @@
+﻿@model BlogPL.Models.ArticleViewModel.ArticleViewModel
+@{
+        var avatar = Html.Action("GetAvatar", "User", new { id = Model.UserId }); 
+}
+<div id="article">
+    <div id="title">
+
+        <h2>@Html.ActionLink(@Model.Title, "ViewArticle", new { controller = "Article", ArticleId = @Model.Id })</h2>
+
+        <div id="info">
+            <span id="date">@Model.PublicationDate.ToShortDateString()</span>
+            
+                <div class="img-wrapper">
+                    <img src=@avatar />
+                </div>
+            <span id="user">
+                @Html.ActionLink(@Model.User.UserName, "GetBloggerArticles", new { controller = "Article", bloggerid = @Model.UserId }, new { @title = "User's blog" })
+            </span>
+
+        </div>
+    </div>
+    <br>
+    <div id="content" class="text-justify">@Model.Content</div>
+</div>
+

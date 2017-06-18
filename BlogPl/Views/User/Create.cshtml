@@ -1,0 +1,93 @@
+﻿@*@model BlogPL.Models.AccountViewModel.RegisterViewModel*@
+@model BlogPL.Models.AccountViewModel.RegisterViewModel
+@{
+    ViewBag.Title = "Create user";
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem { Text= "admin", Value= "admin" });
+    listItems.Add(new SelectListItem { Text = "user", Value = "user" });
+}
+<!--  FORM-->
+<div class="col-md-offset-4 col-lg-offset-4">
+    <div class="panel col-md-6 col-lg-6">
+        <div class="panel-heading text-center">
+            <h4>Registration</h4>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Create", "User", FormMethod.Post, new Dictionary<string, object> { { "data-toggle", "validator" } }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Enter login" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserEmail)
+                        @Html.TextBoxFor(m => m.UserEmail, new { @class = "form-control", @placeholder = "Enter Email" })
+                        @Html.ValidationMessageFor(m => m.UserEmail)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserPassword)
+                        @Html.TextBoxFor(m => m.UserPassword, new { @class = "form-control", @placeholder = "Enter password", @type = "password" })
+                        @Html.ValidationMessageFor(m => m.UserPassword)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PasswordConfirm)
+                        @Html.TextBoxFor(m => m.PasswordConfirm, new { @class = "form-control", @placeholder = "Confirm password", @type = "password" })
+                        @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Roles)
+                        @*@Html.TextBoxFor(m => m.Roles, new { @class = "form-control", @placeholder = "Enter role", @type = "role" })*@
+                        @Html.DropDownListFor(m=>m.Roles,listItems)
+                        @Html.ValidationMessageFor(m => m.Roles)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Captcha)
+                        @Html.TextBoxFor(m => m.Captcha, new { @class = "form-control", @placeholder = "Enter captcha" })
+                        @Html.ValidationMessageFor(m => m.PasswordConfirm)
+                        <div class="img-responsive">
+                            <img src="@Url.Action("Captcha", "Account")" alt="captcha" />
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(m => m.Captcha, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Captcha, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.PasswordConfirm, null, new { @class = "text-danger" })
+                                <div class="img-responsive">
+                                    <img src="@Url.Action("Captcha", "Account")" alt="captcha" />
+                                </div>
+                            </div>
+                        </div>*@
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">Create</button>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-info btn-lg btn-block" id="BTN_A">Cancel</button>
+                        </div>
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- / FORM -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="~/Scripts/jquery.validate.bootstrap.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.bootstrap.min.js"></script>*@
+}
+
+<script type="text/javascript">
+    $('#BTN_A').click(function () {
+        document.location = '@Url.Action("GetAllUsers", "User")';
+    });
+</script>

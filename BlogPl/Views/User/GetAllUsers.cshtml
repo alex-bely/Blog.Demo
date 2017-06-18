@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BlogPL.Models.UserViewModel.UserViewModel>
+@{
+    ViewBag.Title = "UsersForAdmin";
+}
+
+
+<div class="get-all">
+    <h2>All users</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th>
+                @Html.DisplayName("E-mail")
+            </th>
+            <th>
+                @Html.DisplayName("Regictration date")
+            </th>
+            <th>
+                @Html.DisplayName("Articles count")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr id="row@(item.UserId)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserEmail)
+                </td>
+                @{
+                    var date = item.RegistrationDate.ToShortDateString();
+                }
+                <td>
+                    @Html.DisplayFor(m => date)
+                </td>
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.ArticlesCount)
+                </td>
+                <td id="roles@(item.UserId)">
+                    @Html.DisplayTextFor(modelItem => item.Roles)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "GetUserProfile", new { controller = "User", userLogin = item.Login }) |
+                    @if (item.Login != this.Profile.UserName)
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { controller = "User", userId = item.UserId }) @:|
+                    }
+                    @if (!item.Roles.Contains("Admin"))
+                    {
+                        @Ajax.ActionLink("Make admin", "UpdateRole", new { userId = item.UserId, role="Admin" }, new AjaxOptions { UpdateTargetId = "row"+item.UserId, HttpMethod = "Post" })
+                    }
+                    @if (!item.Roles.Contains("User"))
+                    {
+                        @Ajax.ActionLink("Make user", "UpdateRole", new { userId = item.UserId, role = "User" }, new AjaxOptions { UpdateTargetId = "row" + item.UserId, HttpMethod = "Post" })
+                    }
+                </td>
+            </tr>
+                    }
+    </table>
+    <p>
+        @Html.ActionLink("Add new user", "Create", new { controller = "User" })
+    </p>
+</div>
+
+
+@*@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/blogscript")
+@Scripts.Render("~/bundles/jqueryval")*@
+

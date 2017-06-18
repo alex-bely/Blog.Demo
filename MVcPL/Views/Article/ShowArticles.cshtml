@@ -1,0 +1,11 @@
+﻿@using MVcPL.Helpers
+@using MVcPL.Models
+@foreach (var item in Model)
+{
+    @Html.Action("ShowArticle", "Article", new { ArticleId = item.Id })
+}
+<div id="paginator">
+    <ul class="pagination pagination-lg">
+        @Html.PageLinks((PageInfo)ViewBag.PageInfo, x => Url.Action("Index", new { controller = "Home", page = x }))
+    </ul>
+</div>

@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55ED79E8-20E7-48AE-B0BB-F84762C09335}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVcPL</RootNamespace>
+    <AssemblyName>MVcPL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.3.2.1.0\lib\net45-full\Ninject.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PageHelper.cs" />
+    <Compile Include="Infrastructur\CaptchaImage.cs" />
+    <Compile Include="Infrastructur\Mappers\ArticleMapper.cs" />
+    <Compile Include="Infrastructur\Mappers\CommentMapper.cs" />
+    <Compile Include="Infrastructur\Mappers\UserMapper.cs" />
+    <Compile Include="Infrastructur\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\AccountViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\AccountViewModel\RegisterViewModel.cs" />
+    <Compile Include="Models\ArticleViewModel\ArticleViewModel.cs" />
+    <Compile Include="Models\CommentViewModel\CommentViewModel.cs" />
+    <Compile Include="Models\PageInfo.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CustomMembershipProvider.cs" />
+    <Compile Include="Providers\CustomProfileProvider.cs" />
+    <Compile Include="Providers\CustomRoleProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Blog.mdf" />
+    <Content Include="App_Data\Blog_log.ldf">
+      <DependentUpon>Blog.mdf</DependentUpon>
+    </Content>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\BLL.dll" />
+    <Content Include="bin\BLL.Interfacies.dll" />
+    <Content Include="bin\BLL.Interfacies.pdb" />
+    <Content Include="bin\BLL.pdb" />
+    <Content Include="bin\DAL.dll" />
+    <Content Include="bin\DAL.Interfacies.dll" />
+    <Content Include="bin\DAL.Interfacies.pdb" />
+    <Content Include="bin\DAL.pdb" />
+    <Content Include="bin\DependencyResolver.dll" />
+    <Content Include="bin\DependencyResolver.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\ExpressionTreeVisitor.dll" />
+    <Content Include="bin\ExpressionTreeVisitor.pdb" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\MVcPL.dll" />
+    <Content Include="bin\MVcPL.pdb" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Ninject.dll" />
+    <Content Include="bin\Ninject.Web.Common.dll" />
+    <Content Include="bin\Ninject.Web.Common.xml" />
+    <Content Include="bin\Ninject.Web.dll" />
+    <Content Include="bin\Ninject.Web.Mvc.dll" />
+    <Content Include="bin\Ninject.Web.Mvc.xml" />
+    <Content Include="bin\Ninject.Web.xml" />
+    <Content Include="bin\Ninject.xml" />
+    <Content Include="bin\ORM.dll" />
+    <Content Include="bin\ORM.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\ru\EntityFramework.resources.dll" />
+    <Content Include="bin\ru\EntityFramework.SqlServer.resources.dll" />
+    <Content Include="bin\ru\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\ru\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\ru\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\ru\System.Web.Razor.resources.dll" />
+    <Content Include="bin\ru\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\ru\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\ru\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebActivatorEx.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\error.css" />
+    <Content Include="Content\Fontawesome\css\font-awesome.css" />
+    <Content Include="Content\Fontawesome\css\font-awesome.min.css" />
+    <Content Include="Content\Fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\MVcPL.csproj.FileListAbsolute.txt" />
+    <Content Include="Content\Fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Fontawesome\less\animated.less" />
+    <Content Include="Content\Fontawesome\less\bordered-pulled.less" />
+    <Content Include="Content\Fontawesome\less\core.less" />
+    <Content Include="Content\Fontawesome\less\fixed-width.less" />
+    <Content Include="Content\Fontawesome\less\font-awesome.less" />
+    <Content Include="Content\Fontawesome\less\icons.less" />
+    <Content Include="Content\Fontawesome\less\larger.less" />
+    <Content Include="Content\Fontawesome\less\list.less" />
+    <Content Include="Content\Fontawesome\less\mixins.less" />
+    <Content Include="Content\Fontawesome\less\path.less" />
+    <Content Include="Content\Fontawesome\less\rotated-flipped.less" />
+    <Content Include="Content\Fontawesome\less\screen-reader.less" />
+    <Content Include="Content\Fontawesome\less\stacked.less" />
+    <Content Include="Content\Fontawesome\less\variables.less" />
+    <Content Include="Content\Fontawesome\scss\font-awesome.scss" />
+    <Content Include="Content\Fontawesome\scss\_animated.scss" />
+    <Content Include="Content\Fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Fontawesome\scss\_core.scss" />
+    <Content Include="Content\Fontawesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Fontawesome\scss\_icons.scss" />
+    <Content Include="Content\Fontawesome\scss\_larger.scss" />
+    <Content Include="Content\Fontawesome\scss\_list.scss" />
+    <Content Include="Content\Fontawesome\scss\_mixins.scss" />
+    <Content Include="Content\Fontawesome\scss\_path.scss" />
+    <Content Include="Content\Fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Fontawesome\scss\_screen-reader.scss" />
+    <Content Include="Content\Fontawesome\scss\_stacked.scss" />
+    <Content Include="Content\Fontawesome\scss\_variables.scss" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\blog.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="bin\MVcPL.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Shared\_LoginMenu.cshtml" />
+    <Content Include="Views\Shared\_Search.cshtml" />
+    <Content Include="Views\Article\BloggerArticles.cshtml" />
+    <Content Include="Views\Article\CreateArticle.cshtml" />
+    <Content Include="Views\Article\ShowArticle.cshtml" />
+    <Content Include="Views\Article\ShowArticles.cshtml" />
+    <Content Include="Views\Article\UpdateArticle.cshtml" />
+    <Content Include="Views\Article\ViewArticle.cshtml" />
+    <Content Include="Views\Comment\_CreateComment.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Comment\_CommentsOfArticle.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.Interfacies\BLL.Interfacies.csproj">
+      <Project>{D36F69F1-F26C-4174-BDF2-D9AF3063BAA8}</Project>
+      <Name>BLL.Interfacies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DependencyResolver\DependencyResolver.csproj">
+      <Project>{4d40fadd-cf22-40f5-8a51-12860c72a646}</Project>
+      <Name>DependencyResolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8253</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6679/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

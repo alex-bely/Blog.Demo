@@ -1,0 +1,38 @@
+﻿@model BlogPL.Models.UserViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>User delete</h2>
+<div>Are you sure you want to delete user with login <b>@Html.DisplayFor(model => model.Login)</b>?</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    @*@Html.DisplayFor(model => model.Login)
+    @Html.HiddenFor(model => model.Login)
+    @Html.DisplayFor(n=>n.UserId)
+    @Html.HiddenFor(n => n.UserId)
+    @Html.DisplayFor(n => n.UserEmail)
+    @Html.HiddenFor(n => n.UserEmail)
+    @Html.HiddenFor(model => model.Login)
+    @Html.HiddenFor(n => n.UserId)
+    @Html.HiddenFor(n => n.UserEmail)*@
+    <p>
+        @*@Html.DisplayFor(model => model.Login)
+        @Html.HiddenFor(model => model.Login)
+        @Html.DisplayFor(n => n.UserId)
+        @Html.HiddenFor(n => n.UserId)
+        @Html.DisplayFor(n => n.UserEmail)
+        @Html.HiddenFor(n => n.UserEmail)
+        @Html.HiddenFor(model => model.Login)
+        @Html.HiddenFor(n => n.UserId)
+        @Html.HiddenFor(n => n.UserEmail)*@
+        <input type="submit" value="Delete"/>
+    </p>
+    <p>
+        @Html.ActionLink("Back to user's list", "GetAllUsers", new { controller = "User" })
+    </p>
+}

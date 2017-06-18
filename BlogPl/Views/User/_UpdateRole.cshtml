@@ -1,0 +1,34 @@
+﻿@model BlogPL.Models.UserViewModel.UserViewModel
+<td>
+    @Html.DisplayFor(modelItem => modelItem.UserId)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Login)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.UserEmail)
+</td>
+@{
+    var date = Model.RegistrationDate.ToShortDateString();
+}
+<td>
+    @Html.DisplayFor(m => date)
+</td>
+<td>
+    @Html.DisplayTextFor(modelItem => modelItem.ArticlesCount)
+</td>
+<td id="roles@(Model.UserId)">
+    @Html.DisplayTextFor(modelItem => modelItem.Roles)
+</td>
+<td>
+    @Html.ActionLink("Edit", "ViewUser", new { controller = "User", userId = Model.UserId }) |
+    @Html.ActionLink("Delete", "Delete", new { controller = "User", userId = Model.UserId }) |
+    @if (!Model.Roles.Contains("Admin"))
+    {
+        @Ajax.ActionLink("Make admin", "UpdateRole", new { userId = Model.UserId, role = "Admin" }, new AjaxOptions { UpdateTargetId = "row" + Model.UserId, HttpMethod = "Post" })
+    }
+    @if (!Model.Roles.Contains("User"))
+    {
+        @Ajax.ActionLink("Make user", "UpdateRole", new { userId = Model.UserId, role = "User" }, new AjaxOptions { UpdateTargetId = "row" + Model.UserId, HttpMethod = "Post" })
+    }
+</td>

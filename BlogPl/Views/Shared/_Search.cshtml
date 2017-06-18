@@ -1,0 +1,67 @@
+﻿@model BlogPL.Models.SearchViewModel.SearchViewModel
+
+<script type="text/javascript">
+    function OnSuccess(data) {
+        var results = $('#WRAPPERDIVID'); 
+        results.empty(); 
+        for (var i = 0; i < data.length; i++) {
+            results.append('<a href="/Article/ViewArticle?articleId=' + data[i].value + '"><p>' + data[i].label + '</p></a>'); 
+        }
+    }
+</script>
+
+
+@using (Ajax.BeginForm("SearchByTitle", "Search", new AjaxOptions
+{
+    OnSuccess = "OnSuccess",
+    HttpMethod = "Post"
+}))
+{
+    <div class="form-group1" id="search">
+        
+        <div class="col-sm-5">
+            @Html.EditorFor(model => Model.SearchString, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter to search.."}})
+            
+        </div>
+    </div>
+    <div id="WRAPPERDIVID" class="live-res-wrapper"></div>
+        <input type="submit" value="Search" class="btn btn-default" style="display:none"/>
+        <button type="button"class="btn btn-default" id="target">Search</button>
+}
+
+
+@*Take*@
+<script>
+    $('#search input').on('keyup', function () {
+        $("#SearchString").submit();
+    });
+    
+
+    $('#search').focusin(function () {
+        $("#WRAPPERDIVID").show();
+    });
+
+    $('#search').focusout(function () {
+        window.setTimeout(function () { $("#WRAPPERDIVID").hide() }, 150);
+        
+        
+    });
+
+
+    $('#target').click(function () {
+        var text = $("#SearchString").val();
+        //var text = "s";
+        $("#SearchString").val("");
+        $("#WRAPPERDIVID").empty();
+        $.ajax({
+            type: "POST",
+            url: "/Search/FullSearch",
+            data: {title:text},
+            success: function (response) {
+                $("#FullSearchDiv").html(response);
+            },
+            dataType: "html",
+            
+        });
+    });
+</script>

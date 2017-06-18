@@ -1,0 +1,32 @@
+﻿@if (HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    var avatar = Html.Action("GetAvatar", "User", new {Login= @HttpContext.Current.User.Identity.Name });
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle navbar-btn" data-toggle="dropdown" role="button" aria-expanded="false">@User.Identity.Name
+            <div class="img-wrapper"><img class="img-rounded" style="background-color:white" src=@avatar /></div>
+            <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("Add article", "CreateArticle", "Article")</li>
+            @if (HttpContext.Current.User.IsInRole("admin"))
+                {
+                <li>@Html.ActionLink("Articles", "GetAllArticles", "Article")</li>
+                <li>@Html.ActionLink("Users", "GetAllUsers", "User")</li>
+            }
+            <li>@Html.ActionLink("Profile", "GetUserProfile", "User", new { userLogin = @HttpContext.Current.User.Identity.Name }, null)</li>
+            <li class="divider"></li>
+            <li>@Html.ActionLink("Exit", "LogOff", "Account")</li>
+        </ul>
+        </li>
+
+    </ul>
+}
+else
+{
+    <div class="navbar-form navbar-right">
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Register", "Account")'">Register</button>
+    </div>
+    <div class="navbar-form navbar-right">
+        <button type="button" class="btn btn-info" id="login" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+    </div>
+}

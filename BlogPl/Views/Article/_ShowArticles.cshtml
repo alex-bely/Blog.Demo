@@ -1,0 +1,18 @@
+﻿@model PagedList.IPagedList<BlogPL.Models.ArticleViewModel.ArticleViewModel>
+@using PagedList.Mvc;
+@using PagedList;
+<div id="showArticles">
+    @foreach (var item in Model)
+    {
+        @Html.Action("ShowArticle", "Article", new { ArticleId = item.Id })
+    }
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("ShowArticles", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "showArticles" }))
+</div>
+
+@*Take*@
+<script>
+ $(document).ready(function(){
+    $(window).scrollTop(0);
+});
+</script>

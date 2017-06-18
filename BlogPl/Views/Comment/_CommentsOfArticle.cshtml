@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BlogPL.Models.CommentViewModel.CommentViewModel>
+<h4>Comments: @Model.Count()</h4>
+
+    @if (Model.Count() != 0)
+    {
+
+        foreach (var comment in Model)
+        {
+            var avatar = Html.Action("GetAvatar", "User", new { id = comment.UserId });
+            <div id="comment" class="comment">
+                <div id="top">
+                    <div class="img-wrapper"><img src=@avatar /></div><span id="user"> @Html.ActionLink(@comment.User.UserName, "ViewBloggerArticles", new { controller = "Article", bloggerid = @comment.UserId }, new { @title = "Блог пользователя" })</span>
+                    <span id="date">
+                        @comment.PublicationDate.ToShortDateString()
+                        @if (User.IsInRole("admin") || (User.Identity.IsAuthenticated && (Convert.ToInt32(Profile.GetPropertyValue("Id")) == comment.UserId)))
+                    {
+                            @Ajax.ActionLink("×", "DeleteComment", "Comment", new { articleId = comment.ArticleId, commentId = comment.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "all_comments" }, new { @title = "Delete", @class = "comment-delete" })
+                        }
+                    </span>
+                </div>
+                <div class="comment-text">@comment.Text</div>
+            </div>
+            
+        }
+    }
+
+

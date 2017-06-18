@@ -1,0 +1,9 @@
+﻿@model IEnumerable<BlogPL.Models.ArticleViewModel.ArticleViewModel>
+@if (Model.Count() != 0)
+{
+    <h5>Related articles</h5>
+}
+@foreach (var item in Model)
+{
+@Html.ActionLink(@item.Title, "ViewArticle", new { controller = "Article", ArticleId = @item.Id }, new {@class= "fa fa-check-square" })<br />
+}

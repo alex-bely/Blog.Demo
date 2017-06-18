@@ -1,0 +1,29 @@
+﻿@model PagedList.IPagedList<BlogPL.Models.ArticleViewModel.ArticleViewModel>
+@using PagedList.Mvc;
+@using PagedList;
+<div class="container-fluid"><div class="row text-center"></div></div>
+<div class="col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8" id="right_content">
+    <div id="bloggerArticles">
+        @if (Model.Count() != 0)
+        {
+            int id = Model.FirstOrDefault().UserId;
+            foreach (var item in Model)
+            {
+                @Html.Action("ShowArticle", "Article", new { ArticleId = item.Id })
+            }
+            
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("ViewBloggerArticles", new { bloggerid=id, page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "bloggerArticles" }))
+        }
+        else
+        {
+        <h3>У блоггера нет статей</h3>
+        }
+    </div>
+</div>
+
+@*Take*@
+<script>
+ $(document).ready(function(){
+    $(window).scrollTop(0);
+});
+</script>

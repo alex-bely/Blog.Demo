@@ -1,0 +1,7 @@
+﻿@model IEnumerable<BlogPL.Models.ArticleViewModel.ArticleViewModel>
+@{
+    ViewBag.Title = "ArticlesForAdmin";
+}
+<div>
+    @Html.Partial("_GetArticlesForAdmin", Model)
+</div>

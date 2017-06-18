@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BlogPL.Models.TagViewModel.TagViewModel>
+@if (Model.Count() != 0)
+{
+    @Styles.Render("~/Content/Fontawesome/css/font-awesome.css")
+
+    foreach (var tag in Model)
+    {
+        @*<div class="col-md-9 col-lg-9" id="comment">
+            <div id="top">*@
+                <span id="date">
+                    @*<span class="glyphicon glyphicon-tag">@tag.Name</span>*@
+                    <span class="fa fa-hashtag">@Ajax.ActionLink(@tag.Name, "SearchByTag", new {controller="Search", tagName = tag.Name }, new AjaxOptions { UpdateTargetId = "searchByTag", HttpMethod = "Get" })</span>
+                    @*@if (User.IsInRole("admin") )
+                    {
+                        @Ajax.ActionLink("×", "DeleteTag", "Tag", new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "all_tags" }, new { @title = "Delete", @class = "tag-delete" })
+                    }*@
+                </span>
+            @*</div>
+        </div>*@
+    }
+}

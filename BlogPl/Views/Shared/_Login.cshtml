@@ -1,0 +1,38 @@
+﻿@model BlogPL.Models.AccountViewModel.LoginViewModel
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new Dictionary<string, object> { { "data-toggle", "validator" } }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false,"", new { @class = "text-danger" })
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Please, sign in</h3>
+        </div>
+        <div class="panel-body">
+            <fieldset>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        @Html.TextBoxFor(m=>m.UserName, new { @class = "form-control", @placeholder = "Enter login" })
+                    </div>
+                    @Html.ValidationMessageFor(m=>m.UserName)
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        @Html.TextBoxFor(m=>m.Password, new { @class = "form-control", @placeholder = "Enter password", @type = "password" })
+                    </div>
+                    @Html.ValidationMessageFor(m=>m.Password)
+                </div>
+                @Html.CheckBoxFor(m=>m.RememberMe, htmlAttributes: new { @checked = true, @name = "RememberMe" })
+                @Html.LabelFor(m=>m.RememberMe, "Remember me")
+                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+            </fieldset>
+        </div>
+    </div>
+}
