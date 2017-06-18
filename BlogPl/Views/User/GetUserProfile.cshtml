@@ -9,7 +9,6 @@
     @using (Html.BeginForm("UploadFile", "User", new { userLogin = Model.Login }, FormMethod.Post, new { id = "form1", name = "form1", enctype = "multipart/form-data" }))
     {
         @Html.ViewAvatar(avatar, "avatar");
-        @*<img src="@ViewBag.Avatar" width="50" height="50" class="img-thumbnail" alt="avatar" /><br />*@
         <label for="imageFile" class="btn btn-large btn-primary">Upload </label>
         <input type="file" size="45" name="file" id="imageFile" style="visibility:hidden" />
 
