@@ -61,9 +61,10 @@ namespace BlogPL.Providers
             bool isValid = false;
             try
             {
-                var users = UserService.GetAllUsers();
-                var user = users.Where(el => el.Login == username).FirstOrDefault();
-                
+                //var users = UserService.GetAllUsers();
+                //var user = users.Where(el => el.Login == username).FirstOrDefault();
+
+                var user = UserService.GetOneByPredicate(el => el.Login == username);
                 if (user != null && Crypto.VerifyHashedPassword(user.Password, password))
                 {
                     isValid = true;

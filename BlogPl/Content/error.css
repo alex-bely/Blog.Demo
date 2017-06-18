@@ -9,11 +9,11 @@
 
 div.not-found-wrapper div h5 {
     font-size: 1.2em;
-    padding: 0.8%;
+    padding: 0;
 }
 
 div.not-found-wrapper div p {
-    margin: 0.6% 0 0 0;
+   
 }
 
 div.not-found-wrapper div {
@@ -36,7 +36,7 @@ div.not-found-wrapper div ol {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 40px;*/
-    padding: 0 0 0 7%;
+    padding: 0 0 0 20px;
 }
 
 div.not-found-wrapper div ol li {
