@@ -5,10 +5,9 @@ namespace BlogPL
 {
     public class BundleConfig
     {
-        //Дополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
+        
         public static void RegisterBundles(BundleCollection bundles)
         {
-            
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
             "~/Scripts/jquery-{version}.js",
             "~/Scripts/jquery.unobtrusive-ajax.js"

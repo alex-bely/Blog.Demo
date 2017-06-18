@@ -1,9 +1,0 @@
-﻿@*@model MVcPL.Models.SearchViewModel*@
-<li>
-@using (Html.BeginForm("Search", "Search"))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "")
-    @*@Html.TextBoxFor(m => m.SearchString, new { @Id = "search", @autocomplete = "off", @placeholder = "Search", @class = "navbar-brand" })*@
-}  
-</li>
