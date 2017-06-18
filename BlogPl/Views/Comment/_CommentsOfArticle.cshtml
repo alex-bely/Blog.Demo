@@ -9,7 +9,7 @@
             var avatar = Html.Action("GetAvatar", "User", new { id = comment.UserId });
             <div id="comment" class="comment">
                 <div id="top">
-                    <div class="img-wrapper"><img src=@avatar /></div><span id="user"> @Html.ActionLink(@comment.User.UserName, "ViewBloggerArticles", new { controller = "Article", bloggerid = @comment.UserId }, new { @title = "Блог пользователя" })</span>
+                    <div class="img-wrapper"><img src=@avatar /></div><span id="user"> @Html.ActionLink(@comment.User.UserName, "ViewBloggerArticles", new { controller = "Article", bloggerid = @comment.UserId }, new { @title = "User blog" })</span>
                     <span id="date">
                         @comment.PublicationDate.ToShortDateString()
                         @if (User.IsInRole("admin") || (User.Identity.IsAuthenticated && (Convert.ToInt32(Profile.GetPropertyValue("Id")) == comment.UserId)))
